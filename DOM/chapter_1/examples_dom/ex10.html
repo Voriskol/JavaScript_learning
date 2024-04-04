@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Пример 10</title>
-</head>
-<body>
-  
-  <p title="Подсказка" class="text">Абзац текста</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Пример 10</title>
+  </head>
+  <body>
+    <p title="Подсказка" class="text">Абзац текста</p>
 
-  <script>
-
-  </script>
-</body>
+    <script>
+      let elem = document.querySelector("p");
+      elem.setAttribute("id", "new_text"); // добавить класс/id и тд. тегу
+      console.log(elem.hasAttribute("title"));
+      // hasAttribute позвоялет проверить наличие атрибута у тега
+      console.log(elem.getAttribute("title")); // позволяет получить значение атрибута
+      for (let attr of elem.attributes) {
+        console.log(`${attr.name} : ${attr.value}`);
+      } // пройтись циклом по всем атрибутам элемента и вывести их и их значения
+      elem.removeAttribute("title"); // удаление атрибута
+      for (let attr of elem.attributes) {
+        console.log(`${attr.name} : ${attr.value}`);
+      }
+      console.dir(elem); // вывод всей информации об элементе.
+    </script>
+  </body>
 </html>

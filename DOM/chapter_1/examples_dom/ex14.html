@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Пример 14</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Пример 14</title>
+  </head>
+  <body>
+    <div class="alert">
+      <p>Сообщение</p>
+    </div>
 
-  <div class="alert">
-    <p>Сообщение</p>
-  </div>
+    <div id="one">Один</div>
+    <div id="two">Два</div>
 
-  <div id="one">Один</div>
-  <div id="two">Два</div>
-
-  <script>
-
-  </script>
-</body>
+    <script>
+      let div = document.querySelector("div");
+      setTimeout(() => {// выполнить функцию через определенное время
+        div.remove(); // удалить элемент
+        two.after(one); // перенести элемент one после элемента two
+      }, 2000);
+    </script>
+  </body>
 </html>

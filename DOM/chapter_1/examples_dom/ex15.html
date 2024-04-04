@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Пример 15</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Пример 15</title>
+  </head>
+  <body>
+    <div class="alert">
+      <p>Сообщение</p>
+    </div>
 
-  <div class="alert">
-    <p>Сообщение</p>
-  </div>
+    <script>
+      let div = document.querySelector("div"); // поместили в переменную содержимое div
 
-  <script>
-
-  </script>
-</body>
+      let div2 = div.cloneNode(true); // создали копию div включая содержимое (true)
+      div2.querySelector("p").textContent = "Еще одно сообщение"; // в клоне в теге p изменили текст
+      div.after(div2); // поместили div2  после div
+    </script>
+  </body>
 </html>

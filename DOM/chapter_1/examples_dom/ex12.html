@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Пример 12</title>
-</head>
-<body>
-  <p>Разделитель</p>
-  <hr>
-  <script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Пример 12</title>
+  </head>
+  <body>
+    <p>Разделитель</p>
+    <hr />
+    <script>
+      let div = document.createElement("div"); // создать новый элемент
+      div.className = "alert"; // задать название элементу
+      div.innerHTML = "Сообщение"; // изменение HTML содержимого элемента
+      //div.innerHTML = "<p>Важное сообщение</p>"; // создать данный контент для HTML
+      // document.querySelector("hr").after(div);
+      document.querySelector("hr").before(div);
+      //   document.body.append(div); // добавить контент в конец тега Body
+      //   document.body.prepend(div); // добавить контент в начало тега Body
+      //   document.body.before(div); // добавить контент перед тегом Body
+      //   document.body.after(div); // добавить контент за тегом Body
 
-  </script>
-</body>
+      let p = document.createElement("p");
+      p.textContent = "Важное сообщение!"; // Изменение текстового содержимого элемента
+      //div.append("Важное сообщение", document.createElement("hr"));
+      div.replaceWith(p); // заменяет один элемент на тот, который указан в скобках
+    </script>
+  </body>
 </html>
