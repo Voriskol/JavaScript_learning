@@ -51,7 +51,7 @@ table {
 }
 caption {
   padding: 10px 0;
-  background-color: #fff6ce;
+  background-color: #8f8765;
   border: 1px solid black;
   border-bottom: none;
 }
@@ -62,9 +62,12 @@ th {
   text-align: center;
   font-size: 18px;
 }
+td {
+  background-color: aquamarine;
+}
 th {
   font-weight: bold;
-  background-color: #fff6ce;
+  background-color: #c7c5bf;
 }
 h4 {
   text-transform: uppercase;

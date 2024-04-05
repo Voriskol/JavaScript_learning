@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Пример 19 - Сортировка таблицы</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Пример 19 - Сортировка таблицы</title>
-</head>
+  <table id="table">
+    <tr>
+      <th>Имя</th>
+      <th>Возраст</th>
+      <th>Номер комнаты</th>
+    </tr>
+    <tr>
+      <td>Саша</td>
+      <td>10</td>
+      <td>125</td>
+    </tr>
+    <tr>
+      <td>Маша</td>
+      <td>15</td>
+      <td>645</td>
+    </tr>
+    <tr>
+      <td>Паша</td>
+      <td>11</td>
+      <td>231</td>
+    </tr>
+    <tr>
+      <td>Даша</td>
+      <td>7</td>
+      <td>999</td>
+    </tr>
+  </table>
 
-<table id="table">
-  <tr>
-    <th>Имя</th>
-    <th>Возраст</th>
-  </tr>
-  <tr>
-    <td>Саша</td>
-    <td>10</td>
-  </tr>
-  <tr>
-    <td>Маша</td>
-    <td>15</td>
-  </tr>
-  <tr>
-    <td>Паша</td>
-    <td>11</td>
-  </tr>
-  <tr>
-    <td>Даша</td>
-    <td>7</td>
-  </tr>
-</table>
-
-<body>
-  <script>
-
-  </script>
-</body>
-
+  <body>
+    <script>
+      // let sortedRows = Array.from(table.rows)
+      //   .slice(1)
+      //   .sort((rowA, rowB) => {
+      //     return rowA.cells[1].innerHTML - rowB.cells[1].innerHTML;
+      //   });
+      //   table.tBodies[0].append(...sortedRows);
+      let room = Array.from(table.rows) // Создать массив из значений строк таблицы
+        .slice(1) // обрезать массив по первый элемент с начала
+        .sort( // Сортировка массива по возрастанию
+          (firstRow, secondRow) =>
+            firstRow.cells[2].innerHTML - secondRow.cells[2].innerHTML
+        );
+      table.tBodies[0].append(...room); // добавление значений массива в таблицу
+    </script>
+  </body>
 </html>
