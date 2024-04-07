@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Пример 21</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Пример 21</title>
+  </head>
+  <body>
+    <div class="alert block">
+      <p>Сообщение</p>
+    </div>
 
-  <div class="alert block">
-    <p>Сообщение</p>
-  </div>
-
-  <script>
-
-  </script>
-</body>
+    <script>
+      let div = document.querySelector("div");
+      div.style.color = "black";
+      div.style.backgroundColor = prompt("Color", "tomato");
+      div.style.display = "none";
+      setTimeout(() => (div.style.display = ""), 3000);
+      let style = getComputedStyle(div);
+      console.log(style);
+      // div.className = "alert text block"; // изменение класса элемента
+      // for (let name of div.classList) {
+      //   // получение списка классов элемента
+      //   console.log(name);
+      // }
+      // div.classList.add('elem') // добавление класса элементу
+      // div.classList.remove('elem') // удаление класса у элемента
+      // div.classList.toggle('block') // добавление класса элементу либо удаление класса, если он был
+      // div.classList.contains('elem') // проверка на наличие класса у элемента
+    </script>
+  </body>
 </html>

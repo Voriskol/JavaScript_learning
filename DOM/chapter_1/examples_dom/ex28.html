@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Пример 28 - Карточки</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Пример 28 - Карточки</title>
-</head>
+  <body>
+    <div class="items"></div>
 
-<body>
-  <div class="items"></div>
+    <script src="../js/const.js"></script>
+    <script>
+      const createCards = (selector, array) => {
+        for (let i = 0; i < array.length; i++) {
+          let item = document.createElement("div");
+          item.classList.add('item');
+          item.innerHTML = `
+          ФИО: ${array[i]["name"]["f"]} ${array[i]["name"]["i"]} ${
+            array[i]["name"]["o"]
+          }<br>
+          Номер телефона: ${array[i]["number"].join(", ")}<br>
+          День рождения: ${array[i]["date"]["d"]} ${
+            month[+array[i]["date"]["m"]]
+          } ${array[i]["date"]["y"]} года<br>
+          Комната: ${array[i]["room"]}
+        `;
 
-  <script src="../js/const.js"></script>
-  <script>
+          document.querySelector(selector).append(item);
+        }
+      };
 
-  </script>
-</body>
-
+      createCards('.items', people)
+    </script>
+  </body>
 </html>

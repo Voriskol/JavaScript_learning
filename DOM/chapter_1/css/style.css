@@ -22,11 +22,24 @@
   margin-bottom: 10px;
 }
 .item {
+  max-width: 500px;
   background-color: #c8c8c8;
   margin-bottom: 10px;
   padding: 15px;
   font-size: 18px;
   border-radius: 10px;
+  font-weight: 600;
+  border: 1px dotted blue;
+}
+
+.item:hover {
+  max-width: 700px;
+  cursor: pointer;
+  font-size: 24px;
+  transition: 0.4s;
+  background-color: #e8e5e5;
+  box-shadow: 0 0 10px 2px #c8c8c8;
+  border: 1px solid black;
 }
 .timer-progresbar {
   display: flex;
