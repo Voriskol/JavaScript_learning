@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Пример 32 - localStorage</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Пример 32 - localStorage</title>
-</head>
+  <body>
+    <script>
+      localStorage.setItem("key1", 546);
+      localStorage.setItem("key2", "546");
+      localStorage.setItem("key3", false);
 
-<body>
+      console.log(localStorage.getItem("key1"));
+      console.log(localStorage.getItem("key2"));
+      console.log(localStorage.getItem("key3"));
 
-  <script>
+      console.log(localStorage.key(0));
+      console.log(localStorage.key(1));
+      console.log(localStorage.key(2));
 
-  </script>
-</body>
+      console.log(localStorage.length);
+    
 
+      for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        console.log(key, localStorage.getItem(key));
+      }
+    </script>
+  </body>
 </html>
