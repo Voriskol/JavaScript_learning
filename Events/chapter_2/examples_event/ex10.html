@@ -1,28 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" id="theme" />
+    <title>Пример 10 - Аналог jQuery</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css" id="theme">
-  <title>Пример 10 - Аналог jQuery</title>
-</head>
+  <body>
+    <div>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
 
-<body>
+    <div class="block">Text</div>
 
-  <div>
-    <p>Lorem ipsum dolor sit amet.</p>
-  </div>
+    <input type="text" placeholder="Text" />
+    <input type="text" placeholder="Text" />
+    <input type="text" placeholder="Text" />
 
-  <div class="block">Text</div>
+    <script>
+      class $ {
+        constructor(selector, where = document) {
+          this.self = where.querySelector(selector);
+          this.elems = where.querySelectorAll(selector);
+        }
+        each(callback) {
+          for (let elem of this.elems) {
+            callback(elem);
+          }
+        }
+        on(event, callback) {
+          for (let elem of this.elems) {
+            elem.addEventListener(event, callback);
+          }
+          return this;
+        }
+      }
 
-  <input type="text" placeholder="Text">
-  <input type="text" placeholder="Text">
-  <input type="text" placeholder="Text">
+      new $(".block").self.innerHTML = "New text";
+      new $("p", new $("div").self).each((elem) => {
+        elem.innerHTML = "123";
+      });
 
-  <script>
-    
-  </script>
-</body>
+      new $("input").each(function (e) {
+        e.style.fontSize = "20px";
+        e.value = "2";
+      });
 
+      new $("div").on("click", function () {
+        this.classList.toggle("bgc");
+      });
+
+      // new $("input")
+      //   .on("focus", function () {
+      //     this.style.backgroundColor = "tomato";
+      //   })
+      //   .on("blur", function () {
+      //     this.style.backgroundColor = "";
+      //   });
+
+      let inputs = document.querySelectorAll("input");
+      for (let input of inputs) {
+        input.addEventListener("focus", function () {
+          input.style.backgroundColor = "tomato";
+        });
+        input.addEventListener("blur", function () {
+          input.style.backgroundColor = "";
+        });
+      }
+    </script>
+  </body>
 </html>
