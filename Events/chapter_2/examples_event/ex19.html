@@ -1,24 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" id="theme" />
+    <title>Пример 19 - Всплывающая подсказка</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css" id="theme">
-  <title>Пример 19 - Всплывающая подсказка</title>
-</head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+      beatae veniam voluptates hic! Dolorum doloremque modi suscipit harum
+      magni, debitis sed facere, rerum magnam dolor pariatur, distinctio
+      voluptatem rem animi.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+      beatae veniam voluptates hic! Dolorum doloremque modi suscipit harum
+      magni, debitis sed facere, rerum magnam dolor pariatur, distinctio
+      voluptatem rem animi.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+      beatae veniam voluptates hic! Dolorum doloremque modi suscipit harum
+      magni, debitis sed facere, rerum magnam dolor pariatur, distinctio
+      voluptatem rem animi.
+    </p>
 
-<body>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae veniam voluptates hic! Dolorum doloremque modi suscipit harum magni, debitis sed facere, rerum magnam dolor pariatur, distinctio voluptatem rem animi.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae veniam voluptates hic! Dolorum doloremque modi suscipit harum magni, debitis sed facere, rerum magnam dolor pariatur, distinctio voluptatem rem animi.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae veniam voluptates hic! Dolorum doloremque modi suscipit harum magni, debitis sed facere, rerum magnam dolor pariatur, distinctio voluptatem rem animi.</p>
-  
-  <button data-tooltip="длинный текст с подсказкой">Кнопка 1</button>
-  <button data-tooltip="Подсказка с<br> HTML тегами">Кнопка 2</button>
+    <button data-tooltip="длинный текст с подсказкой">Кнопка 1</button>
+    <button data-tooltip="Подсказка с<br> HTML тегами">Кнопка 2</button>
 
-  <script>
-    
-  </script>
-</body>
+    <script>
+      let tooltipElem;
+      document.onmouseover = function (e) {
+        let target = e.target;
+        let tooltipHtml = target.dataset.tooltip;
+        if (!tooltipHtml) return;
+        tooltipElem = document.createElement("div");
+        tooltipElem.className = "tooltip";
+        tooltipElem.innerHTML = tooltipHtml;
+        document.body.append(tooltipElem);
 
+        let coords = target.getBoundingClientRect();
+        let left =
+          coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+        if (left < 0) left = 5;
+
+        let top = coords.top - tooltipElem.offsetHeight - 5;
+        if (top < 0) top = coords.top + target.offsetHeight + 5;
+
+        tooltipElem.style.left = left + "px";
+        tooltipElem.style.top = top + "px";
+      };
+
+      document.onmouseout = function (e) {
+        if (tooltipElem) {
+          tooltipElem.remove();
+          tooltipElem = null;
+        }
+      };
+    </script>
+  </body>
 </html>
